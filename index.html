@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<title>$KNIGHT</title>
 	<meta charset="UTF-8">
@@ -9,18 +10,95 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		/* --- DESKTOP ICONS CONTRAST IMPROVEMENT --- */
+
+		/* BASE LABEL STYLE */
+		.shortcut__name {
+			/* 1. High contrast text */
+			color: #000000 !important;
+			font-weight: 600 !important;
+			background-color: rgba(255, 255, 255, 0.85) !important;
+			padding: 4px 10px !important;
+			margin-top: 8px !important;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+			display: inline-block !important;
+			width: max-content !important;
+			max-width: none !important;
+			min-width: auto !important;
+			white-space: nowrap !important;
+		}
+
+		.shortcut.active .shortcut__name {
+			background-color: #ffffff !important;
+			/* Solid white (100% opacity) */
+			transform: scale(1.05);
+			/* Slight pop effect */
+			transition: all 0.1s ease;
+			/* Smooth transition */
+		}
+
+		/* DESKTOP FIX (Large screens) */
+		@media (min-width: 62em) {
+			.main__sections {
+				/* 1. Override the forced calculated width from the original CSS */
+				width: auto !important;
+
+				/* 2. Set the desired max-width */
+				max-width: 1400px !important;
+
+				/* 3. CENTER LOGIC: Center relative to the side menu */
+				left: 15rem !important;
+				/* Offset for the left sidebar */
+				right: 0 !important;
+				/* Anchor to the right edge to create a container */
+				margin-left: auto !important;
+				/* Push from left */
+				margin-right: auto !important;
+
+				.about__body {
+					padding-left: 40px !important;
+					padding-right: 40px !important;
+				}
+
+				.how__title,
+				.how__items {
+					padding-left: 40px !important;
+					padding-right: 40px !important;
+				}
+
+				.tokenomics {
+					padding-left: 40px !important;
+					padding-right: 40px !important;
+				}
+			}
+		}
+
+		/* MOBILE / TABLET FIX (Sidebar hidden) */
+		@media (max-width: 61.99em) {
+			.main__sections {
+				left: 0 !important;
+				right: 0 !important;
+				width: 95% !important;
+				/* Occupy most of the screen width */
+				margin: 0 auto !important;
+				/* Absolute centering */
+				top: 1.25rem !important;
+			}
+		}
+	</style>
 </head>
 
 <body>
 	<div class="wrapper">
 		<main class="page">
 			<div class="page__bg">
-				    <video class="bg-desktop" autoplay muted loop playsinline>
+				<video class="bg-desktop" autoplay muted loop playsinline>
 					<source src="video/midknight.mp4" type="video/mp4">
-    </video>
-    <video class="bg-mobile" autoplay muted loop playsinline>
-        <source src="video/midknight-mob.mp4" type="video/mp4">
-    </video>
+				</video>
+				<video class="bg-mobile" autoplay muted loop playsinline>
+					<source src="video/mobile-bg.webm" type="video/mp4">
+				</video>
 			</div>
 			<div class="page__main main">
 				<div class="main__shortcuts">
@@ -30,11 +108,11 @@
 						</div>
 						<div class="shortcut__name">Telegram</div>
 					</div>
-					<div link="https://twitter.com/ZeroHourKnight" class="main__shortcut shortcut">
+					<div link="https://x.com/_pigknight_" class="main__shortcut shortcut">
 						<div class="shortcut__icon">
 							<img src="img/shortcuts/x.png" alt="Icon" />
 						</div>
-						<div class="shortcut__name">Twitter</div>
+						<div class="shortcut__name">X</div>
 					</div>
 					<div link="https://snek.fun" class="main__shortcut shortcut">
 						<div class="shortcut__icon">
@@ -42,7 +120,7 @@
 						</div>
 						<div class="shortcut__name">snek.fun</div>
 					</div>
-					<div link="https://www.taptools.io/" class="main__shortcut shortcut">
+					<!--<div link="https://www.taptools.io/" class="main__shortcut shortcut">
 						<div class="shortcut__icon">
 							<img src="img/shortcuts/taptools.png" alt="Icon" />
 						</div>
@@ -53,12 +131,12 @@
 							<img src="img/shortcuts/coingesko.png" alt="Icon" />
 						</div>
 						<div class="shortcut__name">Coingecko</div>
-					</div>
+					</div>-->
 					<div link="go-to-buy" class="main__shortcut shortcut">
 						<div class="shortcut__icon">
 							<img src="img/shortcuts/midnight.png" alt="Icon" />
 						</div>
-						<div class="shortcut__name">How to buy</div>
+						<div class="shortcut__name">About </br> $KNIGHT</div>
 					</div>
 				</div>
 
@@ -96,29 +174,32 @@
 								<span>[CA]:</span>
 								<span>0x445g0fa6aasda...dgsdhsh5becfde149b980</span>
 								<button class="copy-ca">
-									<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-										<path d="M3.83203 1.6665H12.9987V3.33317H5.4987V14.1665H3.83203V1.6665ZM7.16536 4.99984H17.1654V18.3332H7.16536V4.99984ZM8.83203 6.6665V16.6665H15.4987V6.6665H8.83203Z" fill="#3AB11C" />
+									<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20"
+										fill="none">
+										<path
+											d="M3.83203 1.6665H12.9987V3.33317H5.4987V14.1665H3.83203V1.6665ZM7.16536 4.99984H17.1654V18.3332H7.16536V4.99984ZM8.83203 6.6665V16.6665H15.4987V6.6665H8.83203Z"
+											fill="#3AB11C" />
 									</svg>
 								</button>
 							</div>
+							<!--PENDING-->
 							<div class="about__body">
-								<div class="about__image">
-									<video src="video/midknight-2.mp4" autoplay loop muted playsinline></video>
+								<div class="about__image" max-height="500px">
+									<video src="video/midknight-2.webm" max-height="500px" autoplay loop muted
+										playsinline></video>
 								</div>
 								<div class="about__content">
 									<h2 class="about__title title">About</h2>
 									<div class="about__text">
 										<p>
-											$KNIGHT roams the neon-soaked night, a dented beacon of chaotic 
-											warmth reminding everyone that even in grimy alleys, 
-											friendship still sparks. Our quest: spread absurd comfort 
-											through the digital haze while honoring our loyal Knight.
-
+											After midnight, things get weird. Madness and chaos break loose and take
+											over. Vandalism and wild fun rule the night, and only the strongest in the
+											neighborhood survive the Knight of the Night.
 										</p>
 										<p>
-											Join the messy fun, share some light, 
-											and remember—wherever you wander online, 
-											your clanky companion walks beside you.
+											Spread absurd comfort through the digital haze, honor the Knight and BREAK
+											FREE
+											join the madness and the chaos, or get ready to be vandalized.
 										</p>
 									</div>
 								</div>
@@ -133,69 +214,21 @@
 								<div class="tokenomics__content">
 									<div class="tokenomics__items">
 										<div class="tokenomics__item">
-											<div class="tokenomics__item-name">Liquidity</div>
-											<div class="tokenomics__item-value">88% Burned</div>
+											<div class="tokenomics__item-name">Liquidity Pool</div>
+											<div class="tokenomics__item-value">92%</div>
 										</div>
 										<div class="tokenomics__item">
-											<div class="tokenomics__item-name">Marketing</div>
-											<div class="tokenomics__item-value">3%</div>
-										</div>
-										<div class="tokenomics__item">
-											<div class="tokenomics__item-name">Partnerships</div>
+											<div class="tokenomics__item-name">Treasury</div>
 											<div class="tokenomics__item-value">5%</div>
 										</div>
 										<div class="tokenomics__item">
-											<div class="tokenomics__item-name">CEX listings</div>
-											<div class="tokenomics__item-value">2%</div>
-										</div>
-										<div class="tokenomics__item">
-											<div class="tokenomics__item-name">Advisors</div>
-											<div class="tokenomics__item-value">2%</div>
+											<div class="tokenomics__item-name">Team</div>
+											<div class="tokenomics__item-value">3%</div>
 										</div>
 									</div>
 									<div class="tokenomics__bottom">
-										<div class="tokenomics__bottom-item">4.2T tokens</div>
-										<div class="tokenomics__bottom-item">0/0 tax</div>
-									</div>
-								</div>
-							</div>
-						</section>
-						<section class="sections__utilities utilities">
-							<h2 class="utilities__title title">Utilities</h2>
-							<div class="utilities__body">
-								<div class="utilities__items">
-									<div class="utilities__item">
-										<h4 class="utilities__item-title">Strong Partnerships</h4>
-										<div class="utilities__item-text">
-											$KNIGHT forges chaotic midnight alliances with 
-											renegade projects across the crypto underworld, 
-											using back-alley bonds to fuel wild long-term growth. 
-											These rowdy ventures, once mere sparks in the dark, 
-											have blasted past 400 million in market cap and crashed triumphantly 
-											into top-tier exchanges like armor through a tavern door.
-										</div>
-									</div>
-									<div class="utilities__item">
-										<h4 class="utilities__item-title">Ecosystem</h4>
-										<div class="utilities__item-text">
-											Midnight on Cardano expands through the smoky neon dark, 
-											unleashing sharp new projects that rumble into the ecosystem 
-											like armor dragged down an alley. 
-											Each rising venture adds force to our momentum, 
-											strengthening $KNIGHT as Midnight gains recognition 
-											and our gritty, ever-growing success marches on beneath flickering streetlight.
-										</div>
-									</div>
-									<div class="utilities__item">
-										<h4 class="utilities__item-title">Community</h4>
-										<div class="utilities__item-text">
-											$KNIGHT rallies a wild, diverse crowd of holders bound 
-											by their chaotic love for Pepe the Frog, all drifting through 
-											the neon midnight haze. With steady growth and loyal backing 
-											from the broader crypto realm, the project stands on a sturdy, 
-											ever-rising foundation. $KNIGHT keeps drawing curious eyes 
-											and bold interest from prominent figures roaming the digital night.
-										</div>
+										<div class="tokenomics__bottom-item">1B Supply</div>
+										<div class="tokenomics__bottom-item">Mint Revoked</div>
 									</div>
 								</div>
 							</div>
@@ -207,37 +240,47 @@
 									<div class="how__item">
 										<div class="how__item-header">
 											<img src="img/roadmap/01.png" alt="Icon" />
-											<span>Connect Your Wallet</span>
+											<span>Exchange your grandma’s jewels for ADA</span>
 										</div>
 										<div class="how__item-text">
-											Download a Cardano-compatible wallet from the app store or 
-											Google Play, free and simple. Desktop explorers can grab the 
-											proper Chrome extension from the official site, 
-											gearing up like midnight adventurers before stepping into the neon realm.
+											<p>Go to your nearest pawn shop. With gold prices rising, sell grandma’s old
+												jewelry as she doesn’t wear it anymore since she can’t leave the house
+												anyway.</p></br>
+											<p>She’d want you to be happy.</p></br>
+											<p>Making money makes you happy.</p></br>
+											<p>Make your grandma happy.</p>
 										</div>
 									</div>
 									<div class="how__item">
 										<div class="how__item-header">
 											<img src="img/roadmap/01.png" alt="Icon" />
-											<span>Add Midnight Chain</span>
+											<span>Fund your Wallet</span>
 										</div>
 										<div class="how__item-text">
-											Navigate to the ‘Settings’ tab in your wallet and open the networks section. 
-											Add the Midnight network on Cardano and tap “CONNECT TO MIDNIGHT,” 
-											like a lone knight linking into the neon dusk.
+											<p>Once you have the money, exchange it for ADA.</p></br>
+											<p>We’d love to accept jewelry as payment, but snek.fun only accepts ADA as
+												a payment method for now.</p>
 										</div>
 									</div>
 									<div class="how__item">
 										<div class="how__item-header">
 											<img src="img/roadmap/01.png" alt="Icon" />
-											<span>Fund & Bridge To Midnight</span>
+											<span>Connect to snek.fun</span>
 										</div>
 										<div class="how__item-text">
-											Have ADA ready in your wallet before stepping into Midnight’s neon shadows. 
-											You can fund it by buying ADA on a compatible exchange and sending it 
-											to your Cardano wallet, gearing up like a clanky night wanderer loading 
-											coin before crossing into the dusk-lit realm.
+											<p>Connect to snek.fun and create a Snek Turbo Wallet. Add funds from your
+												main wallet to your snek.fun wallet.</p></br>
+											<p>Exchange 90% of your ADA balance for $KNIGHT. It’ll probably never be
+												this cheap again, so take advantage now.</p></br>
+											<p>Remember, you’re doing it for your grandma, so she can see you happy and
+												rich. Later on you can buy her a gold-plated set of dentures</p>
 										</div>
+									</div>
+									<!--Add here the gif of the granny-->
+									<div class="how__video"
+										style="width: 100%; display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+										<video src="video/granny-video-web.webm" autoplay loop muted playsinline
+											style="width: 100%; max-width: 600px; height: auto;"></video>
 									</div>
 								</div>
 								<div class="how__knight">
@@ -263,56 +306,24 @@
 								<button id="to-about" type="button" class="start__item btn">
 									<img src="img/start/01.png" alt="Image" />
 									<span>About</span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+									<svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12"
+										fill="none">
 										<path d="M7 6L0.25 11.1962L0.250001 0.803847L7 6Z" fill="black" />
 									</svg>
 								</button>
 								<button id="to-tokenomics" type="button" class="start__item btn">
 									<img src="img/start/02.png" alt="Image" />
 									<span>Tokenomics</span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+									<svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12"
+										fill="none">
 										<path d="M7 6L0.25 11.1962L0.250001 0.803847L7 6Z" fill="black" />
 									</svg>
 								</button>
-								<button id="to-utilities" type="button" class="start__item btn">
-									<img src="img/start/03.png" alt="Image" />
-									<span>Utilities</span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
-										<path d="M7 6L0.25 11.1962L0.250001 0.803847L7 6Z" fill="black" />
-									</svg>
-								</button>
-								<!-- <button class="start__item btn">
-                    <img src="img/start/04.png" alt="Image" />
-                    <span>Roadmap</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="7"
-                      height="12"
-                      viewBox="0 0 7 12"
-                      fill="none">
-                      <path
-                        d="M7 6L0.25 11.1962L0.250001 0.803847L7 6Z"
-                        fill="black" />
-                    </svg>
-                  </button>
-                  <button class="start__item btn">
-                    <img src="img/start/05.png" alt="Image" />
-                    <span>Social media</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="7"
-                      height="12"
-                      viewBox="0 0 7 12"
-                      fill="none">
-                      <path
-                        d="M7 6L0.25 11.1962L0.250001 0.803847L7 6Z"
-                        fill="black" />
-                    </svg>
-                  </button> -->
 								<a target="_blank" href="https://snek.fun/" class="start__item large btn">
 									<img src="img/shortcuts/snekfun1.png" alt="Image" />
 									<span>BUY NOW!</span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+									<svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12"
+										fill="none">
 										<path d="M7 6L0.25 11.1962L0.250001 0.803847L7 6Z" fill="black" />
 									</svg>
 								</a>
@@ -347,5 +358,27 @@
 		</main>
 	</div>
 	<script src="js/app.min0772.js?_v=20240517084445"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const isMobile = window.innerWidth < 1024 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+			if (isMobile) {
+				const shortcuts = document.querySelectorAll('.shortcut');
+
+				shortcuts.forEach(icon => {
+					icon.addEventListener('click', function (e) {
+						e.preventDefault();
+						const fakeDoubleClick = new MouseEvent('dblclick', {
+							'view': window,
+							'bubbles': true,
+							'cancelable': true
+						});
+						this.dispatchEvent(fakeDoubleClick);
+					});
+				});
+			}
+		});
+	</script>
 </body>
+
 </html>
