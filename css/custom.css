@@ -1,0 +1,224 @@
+/* =========================================
+   CUSTOM STYLES FOR $KNIGHT LANDING PAGE
+   ========================================= */
+
+/* --- 1. DESKTOP ICONS CONTRAST IMPROVEMENT --- */
+
+/* Base Label Style */
+.shortcut__name {
+    /* High contrast text */
+    color: #000000 !important;
+    font-weight: 600 !important;
+
+    /* Badge background */
+    background-color: rgba(255, 255, 255, 0.85) !important;
+
+    /* Shape & Spacing */
+    padding: 4px 10px !important;
+    margin-top: 8px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+
+    /* SIZING FIX: Allow text to be wider than the icon */
+    display: inline-block !important;
+    width: max-content !important;
+    max-width: none !important;
+    min-width: auto !important;
+    white-space: nowrap !important;
+}
+
+/* Active/Selected State */
+.shortcut.active .shortcut__name {
+    background-color: #ffffff !important;
+    transform: scale(1.05);
+    transition: all 0.1s ease;
+}
+
+
+/* --- 2. INACTIVE ICONS & TOOLTIP STYLES (RIGHT SIDE) --- */
+
+/* The Inactive State Base */
+.shortcut.inactive {
+    cursor: not-allowed !important;
+    position: relative !important;
+    /* Opacity is handled below on children elements to avoid transparent tooltips */
+}
+
+/* Apply opacity ONLY to the icon image and label text */
+.shortcut.inactive .shortcut__icon,
+.shortcut.inactive .shortcut__name {
+    opacity: 0.5 !important;
+    transition: opacity 0.2s ease;
+}
+
+/* Tooltip Body (Text Box) */
+.shortcut.inactive::after {
+    content: "Coming Soon";
+    position: absolute;
+
+    /* POSITIONING: RIGHT SIDE */
+    bottom: auto !important;
+    top: 50% !important;
+    left: 100% !important;
+    transform: translateY(-50%) !important;
+    margin-left: 12px !important;
+
+    /* VISUAL STYLES (Square & Solid) */
+    z-index: 9999 !important;
+    background-color: #000000 !important;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 0px !important;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+
+    /* Animation State: Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+}
+
+/* Tooltip Arrow (Triangle pointing left) */
+.shortcut.inactive::before {
+    content: "";
+    position: absolute;
+
+    /* POSITIONING THE ARROW */
+    bottom: auto !important;
+    top: 50% !important;
+    left: 100% !important;
+    transform: translateY(-50%) !important;
+    margin-left: 2px;
+
+    /* DRAWING THE TRIANGLE */
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #000000 transparent transparent !important;
+
+    z-index: 9999 !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+}
+
+/* Trigger: Show Tooltip on Hover */
+.shortcut.inactive:hover::after,
+.shortcut.inactive:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+
+/* --- 3. TOKENOMICS FIXES --- */
+
+/* Align text to the left */
+.tokenomics__item-name {
+    text-align: left !important;
+}
+
+/* Make the pie chart bigger */
+.tokenomics__image img {
+    width: 95% !important;
+    height: 100% !important;
+    max-width: none !important;
+}
+
+
+/* --- 4. COPY NOTIFICATION STYLE (COPIED!) --- */
+
+.copy-ca {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+/* Notification Box */
+.copy-ca::after {
+    content: "Copied to clipboard!";
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000000;
+    color: #ffffff;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Notification Arrow */
+.copy-ca::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+}
+
+/* Active State (Triggered by JS) */
+.copy-ca.copied::after,
+.copy-ca.copied::before {
+    opacity: 1;
+    visibility: visible;
+    bottom: 140%;
+}
+
+
+/* --- 5. LAYOUT & PADDING FIXES --- */
+
+/* DESKTOP FIX (Large screens) */
+@media (min-width: 62em) {
+    .main__sections {
+        width: auto !important;
+        max-width: 1400px !important;
+        /* Center logic relative to menu */
+        left: 15rem !important;
+        right: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Selective Padding */
+    .about__body {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+
+    .how__title,
+    .how__body {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+
+    .tokenomics {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+}
+
+/* MOBILE / TABLET FIX (Sidebar hidden) */
+@media (max-width: 61.99em) {
+    .main__sections {
+        left: 0 !important;
+        right: 0 !important;
+        width: 95% !important;
+        margin: 0 auto !important;
+        top: 1.25rem !important;
+    }
+}
